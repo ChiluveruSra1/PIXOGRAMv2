@@ -1,0 +1,9 @@
+server:
+  port: 8022
+spring:
+  h2:
+    console:
+      path: /console
+      enabled: true
+      settings:
+        web-allow-others: true
