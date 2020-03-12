@@ -3,14 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserModel } from '../models/user.model';
 import { FollowModel } from '../models/follow.model';
+import { UpdateModel } from '../models/update.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'http://localhost:8021/user';
+  private baseUrl = 'http://localhost:8001/user';
 
-  private followUrl='http://localhost:8023/follow'
+  private followUrl='http://localhost:8003/follow'
 
   constructor(private http: HttpClient) { }
   
@@ -37,7 +38,7 @@ export class UserService {
   
   createUser(user: UserModel): Observable<Object> {
     console.log(user)
-    return this.http.post(`${this.baseUrl}` + `/create`,user);
+    return this.http.post(`${this.baseUrl}/create`,user);
   }
 
   follow(follow:FollowModel): Observable<Object> {
@@ -45,8 +46,19 @@ export class UserService {
   }
 
   getFollowing(userid: number): Observable<Object>{
-    return this.http.get(`http://localhost:8023/follow/following/`+`${userid}`)
+    return this.http.get(`http://localhost:8003/follow/following/`+`${userid}`)
   }
+
+  getFollower(userid: number): Observable<Object>{
+    return this.http.get(`http://localhost:8003/follow/follower/`+`${userid}`)
+  }
+ 
+  updateUser(user: UpdateModel,userid:number): Observable<Object> {
+
+    return this.http.put(`${this.baseUrl}`+`/update/`+`${userid}`,user);
+  }
+
+  
 
 
 }

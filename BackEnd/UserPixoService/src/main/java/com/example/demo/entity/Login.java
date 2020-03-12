@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Login {
 
 	@Id
@@ -48,5 +50,11 @@ public class Login {
 	public void setProfilepic(String profilepic) {
 		this.profilepic = profilepic;
 	}
+	
+	public Login() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 		
+	
 }

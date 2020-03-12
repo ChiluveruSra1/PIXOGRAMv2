@@ -11,6 +11,7 @@ import { MyMediaComponent } from './components/my-media/my-media.component';
 import { SearchComponent } from './components/search/search.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FollowComponent } from './components/follow/follow.component';
+import { FollowerComponent } from './components/follower/follower.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: "search", component: SearchComponent},
   {path: "mymedia", component: MyMediaComponent},
   {path: "header", component:HeaderComponent},
-  {path: "follow", component: FollowComponent}
+  {path: "follow", component: FollowComponent},
+  {path: "follower", component: FollowerComponent}
 ];
 
 @NgModule({

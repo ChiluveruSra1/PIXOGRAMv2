@@ -1,9 +1,9 @@
 server:
-  port: 8023
+  port: 8003
 spring:
   h2:
     console:
-      path: /console
+      path: /pixo-console
       enabled: true
       settings:
         web-allow-others: true

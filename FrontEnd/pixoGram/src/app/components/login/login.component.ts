@@ -16,8 +16,9 @@ export class LoginComponent implements OnInit {
     let authval = sessionStorage.getItem("auth");
     if(authval == "true")
     {
-      this.router.navigate(['/uploadmedia']);
+      this.router.navigate(['/newsfeed']);
     }
+    
   }
 
   loginForm: FormGroup;
@@ -52,7 +53,8 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem("auth","true");
       sessionStorage.setItem("userpic",this.loginuser.profilepic);
       sessionStorage.setItem("userid",this.loginuser.id);
-      this.router.navigate(['/uploadmedia']);
+      sessionStorage.setItem("username",this.loginuser.username);
+      this.router.navigate(['/newsfeed']);
     }
   
     },

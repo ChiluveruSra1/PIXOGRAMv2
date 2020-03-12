@@ -11,17 +11,21 @@
       
       <div id="singleMedia" class="container tab-pane active">
         <br>
-        <h1 class="text-center"> Upload Single Media File </h1>
-  
-        <form class="py-5">
+        <hr>
+        <h4 class="text-center"> Post Media </h4>
+  <hr>
+        <form class="py-5"  [formGroup]="uploadMediaForm" (ngSubmit)="onSubmitMedia()" >
           <div class="form-group row">
             <label for="postPic" class="col-sm-2 col-form-label"> Post Media </label>
             <div class="col-sm-10">
-              <form  [formGroup]="uploadMediaForm">
+              <div class="row">
+              <form>
 <!--                 (ngSubmit)="uploadMedia()"  -->
-                <input [(ngModel)]="postPic" (change)="uploadMedia($event)" id="postPic" formControlName="postPic" name="postPic" type="file">
-                <input type="submit" class="field btn btn-info" value="Upload">
+                <input required [(ngModel)]="postPic" (change)="uploadMedia($event)" id="postPic" formControlName="postPic" name="postPic" type="file">
+                
               </form>
+              <input type="submit" [disabled]="!uploadMediaForm.valid" class="field btn btn-info" value="Upload">
+            </div>
             </div>   
           </div>
 <!--           (change)="fileChange($event)" -->
@@ -29,7 +33,7 @@
           <div class="form-group row">
             <label for="title" class="col-sm-2 col-form-label"> Title </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control field" 
+              <input [(ngModel)]="title" formControlName="title" name="title" type="text" class="form-control field" 
               id="title" placeholder="Enter Title">
             </div>
           </div>
@@ -37,7 +41,7 @@
           <div class="form-group row">
             <label for="description" class="col-sm-2 col-form-label">Description</label>
             <div class="col-sm-10">
-              <textarea class="form-control field"
+              <textarea [(ngModel)]="description" formControlName="description" class="form-control field"
                rows="5" id="description"></textarea>
             </div>
           </div>
@@ -45,7 +49,7 @@
           <div class="form-group row">
             <label for="tags" class="col-sm-2 col-form-label">Tags</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control field" id="tags">
+              <input [(ngModel)]="tags" formControlName="tags" type="text" class="form-control field" id="tags">
             </div>
           </div>
 

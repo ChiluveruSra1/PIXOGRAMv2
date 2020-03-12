@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { UploadService } from 'src/app/services/upload.service';
-import { FollowModel } from 'src/app/models/follow.model';
 import { Router } from '@angular/router';
+import { FollowModel } from 'src/app/models/follow.model';
 
 @Component({
-  selector: 'app-follow',
-  templateUrl: './follow.component.html',
-  styleUrls: ['./follow.component.css']
+  selector: 'app-follower',
+  templateUrl: './follower.component.html',
+  styleUrls: ['./follower.component.css']
 })
-export class FollowComponent implements OnInit {
+export class FollowerComponent implements OnInit {
   fllwmodel:FollowModel[];
   media: any = [];
   arrofmedia:any = [];
@@ -22,11 +22,10 @@ export class FollowComponent implements OnInit {
     if (authval == null) {
       this.router.navigate(["/login"]);
     }
-    
 
   let myid = sessionStorage.getItem("userid"); 
   console.log(myid) 
-  this.userService.getFollowing(Number(myid)).subscribe(following =>{
+  this.userService.getFollower(Number(myid)).subscribe(following =>{
     console.log(following)
     this.fllwmodel=JSON.parse(JSON.stringify(following))
 
@@ -81,6 +80,7 @@ console.log(this.arrofmedia+"jkjdsah");
     
 
   }
+
 
   getId(data){
     console.log(data)

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/services/user.service";
 import { LoginModel } from 'src/app/models/login.model';
 import { FollowModel } from 'src/app/models/follow.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-search",
@@ -15,14 +16,19 @@ export class SearchComponent implements OnInit {
   searchResult=false
   noResult=true
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,private router:Router) {}
   picurl:string;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let authval = sessionStorage.getItem("auth");
+    if (authval == null) {
+      this.router.navigate(["/login"]);
+    }
+  }
 
   searchUser(data) {
     console.log(data);
-    this.userService.getUserByName(data).subscribe(
+      this.userService.getUserByName(data).subscribe(
       name => {
         console.log(name);
         this.user=JSON.parse(JSON.stringify(name));
@@ -48,6 +54,11 @@ export class SearchComponent implements OnInit {
     console.log(flw)
     )
 
+  }
+
+  logout(){
+    sessionStorage.clear();
+    console.log("logout")
   }
 
 

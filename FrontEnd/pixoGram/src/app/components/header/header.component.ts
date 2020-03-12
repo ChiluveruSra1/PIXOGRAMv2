@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   
   constructor() { }
-  userpic:string;
+  userpic:string ;
   ngOnInit(): void {
   this.userpic = sessionStorage.getItem("userpic");
   console.log(this.userpic);

@@ -55,8 +55,15 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister() {
+
+    let authval = sessionStorage.getItem("auth");
+    if (authval == null) {
+      this.router.navigate(["/login"]);
+    }
+    
     this.submitted = true;
-    let user = new UserModel(this.fname, this.lname, this.username, this.password, this.email,this.dob,this.profilepic);
+    let user = new UserModel(this.fname, this.lname, this.username, this.password, this.email,this.profilepic);
+    /* ,this.dob */
     console.log("reg comp")
     console.log(user)
 

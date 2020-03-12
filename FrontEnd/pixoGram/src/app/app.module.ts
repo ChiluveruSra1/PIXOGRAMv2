@@ -23,6 +23,10 @@ import { UploadMediaComponent } from './components/upload-media/upload-media.com
 //firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { FollowerComponent } from './components/follower/follower.component';
+
+//custom pipe
+import { ReversePipe } from './reverse.pipe'
 
 @NgModule({
   declarations: [
@@ -37,7 +41,9 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     NewsFeedComponent,
     RegisterComponent,
     SearchComponent,
-    UploadMediaComponent
+    UploadMediaComponent,
+    FollowerComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

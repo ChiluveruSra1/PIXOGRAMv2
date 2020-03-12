@@ -46,6 +46,11 @@ export class MyMediaComponent implements OnInit {
       }
     );
   }
+getId(data){
+  console.log(data)
+  sessionStorage.setItem("intentid",data)
+  
+}
 
 
 }

@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,24 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Login getByUsername(String name) {
 		return loginRepository.getByUsername(name);
+	}
+	/*
+	 * @Override public Login updateUser(User u1, Login l1) { // TODO Auto-generated
+	 * method stub return loginRepository.save(u1);
+	 * 
+	 * }
+	 */
+
+	@Override
+	public Optional<User> findById(int id) {
+		// TODO Auto-generated method stub
+		return userRepository.findById(id);
+	}
+
+	@Override
+	public Optional<Login> findLoginById(int id) {
+		// TODO Auto-generated method stub
+		return loginRepository.findById(id);
 	}
 
 }

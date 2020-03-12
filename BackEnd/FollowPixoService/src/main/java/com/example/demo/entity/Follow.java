@@ -19,6 +19,20 @@ public class Follow {
 	private int myid;
 	private int userid;
 	
+	
+	
+	public Follow() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Follow(int id, int myid, int userid) {
+		super();
+		this.id = id;
+		this.myid = myid;
+		this.userid = userid;
+	}
+
 	public Follow(int myid, int userid) {
 		super();
 		this.myid = myid;

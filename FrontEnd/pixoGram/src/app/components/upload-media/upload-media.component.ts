@@ -25,6 +25,9 @@ export class UploadMediaComponent implements OnInit {
   task: AngularFireUploadTask;
   getDownloadURL: Observable<string>;
   userid: string;
+  title:String;
+  description:String;
+  tags:String
 
   constructor(
     private fb: FormBuilder,
@@ -42,7 +45,11 @@ export class UploadMediaComponent implements OnInit {
     }
 
     this.uploadMediaForm = this.fb.group({
-      postPic: [null]
+      'postPic': [''],
+      'title':[''],
+      'description': [''],
+      'tags': ['']
+
     });
   }
 
@@ -90,17 +97,33 @@ export class UploadMediaComponent implements OnInit {
           this.ref.getDownloadURL().subscribe(url => {
             console.log(url); // <-- do what ever you want with the url..
 
-            let um = new uploadMediaModel(url, "title", "desc", "tag");
+            console.log(url); // <-- do what ever you want with the url..
+            this.postPic=url;
+            console.log(this.postPic)
+            
+     
+           });
+         })
+       ).subscribe();
+        }
 
+
+        onSubmitMedia(){
+          //console.log(this.uploadMediaForm.value);
+            let username1 =sessionStorage.getItem("username")
+            console.log(username1)
+
+            this.description=this.uploadMediaForm.get('description').value
+
+            console.log(this.description)
+            let um = new uploadMediaModel(this.postPic, this.title, this.description, this.tags, username1);
+
+            console.log(um);
             let userid = sessionStorage.getItem("userid");
             console.log(userid);
-
-         
-            let uid = Number(this.userid);
-            console.log(uid);
-
+        
             //store to database
-            this.uploadService.storeMedia(um, Number(userid)).subscribe(
+            this.uploadService.storeMedia(um, Number(userid),username1).subscribe(
               data => {
                 console.log(data);
               },
@@ -109,9 +132,6 @@ export class UploadMediaComponent implements OnInit {
                 console.log("completed");
               }
             );
-          });
-        })
-      )
-      .subscribe();
-  }
+            }
+
 }

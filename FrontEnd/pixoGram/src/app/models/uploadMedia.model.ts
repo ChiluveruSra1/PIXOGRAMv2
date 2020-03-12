@@ -11,7 +11,10 @@ export class uploadMediaModel {
         public url:String,
         public title: String,
         public description: String,
-        public tags:String
+        public tags:String,
+        public username: string
+        
+
     
 
     ) { }
