@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\CHILUVERU\Desktop\Mani-PixoGram\BackEnd-mani\.metadata\.plugins\org.eclipse.jdt.core
+2633880757.index
+2496269196.index
+503230505.index
