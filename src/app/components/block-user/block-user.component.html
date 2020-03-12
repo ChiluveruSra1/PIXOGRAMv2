@@ -1,0 +1,28 @@
+<div class="container-flex">
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-lg-3">
+      <div class="bg-light border-right" id="sidebar-wrapper">
+
+        <a [routerLink]="['/newsfeed']" class="list-group-item btn list-group-item">News Feed</a>
+        <a [routerLink]="['/blockuser']" class="list-group-item btn list-group-item ">Blocked Accounts</a>
+        <a [routerLink]="['/accountdetails']" class="list-group-item btn list-group-item ">Account update</a>
+        <a [routerLink]="['/search']" class="list-group-item btn list-group-item ">Search</a>
+        <a [routerLink]="['/login']" (click)="logout()" class="list-group-item btn list-group-item ">Logout</a>
+
+      </div>
+    </div>
+
+    <div class="col-9 col-md-8">
+
+      <hr>
+      <div>
+        <h5 style="text-align: center; ">Working on that......</h5>
+      </div>
+
+      <hr>
+      
+
+
+    </div>
+  </div>
+</div>
